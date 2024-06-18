@@ -1,71 +1,20 @@
-# Getting Started with Create React App
+### 공공데이터포털에서 제공하는 이미지가 없으면 이미지 없음 사진으로 대체 -> 이미지 URL을 검사하여 이미지 파일명이 없는지 검사 (// 이미지 검사)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 첫 방문 시 엡 소개 컴포넌트 렌더링 (로컬스토리지 사용)
 
-## Available Scripts
+# 문제 해결
+## 1. 지도를 클릭 했을때 변경된 state값(currentRegion)이 읽어지지 않는 문제
+## 원인 : useEffect는 렌더링 시 최초 1번만 실행됨
+## 해결 : 또 다른 useEffect 생성 (// 산 API 호출)
+## 잘못된 해결 : [currentRegion]으로 currentRegion값이 변경 될 때 마다 실행 시키면 성능 저하를 유발함
 
-In the project directory, you can run:
+## 2. active 이벤트는 있지만 선택된 지도의 색상 변경 기능은 제공하지 않음
+## 해결 : 지도의 데이터를 객체화 시켜 선택된 값의 색상을 직접 변경
 
-### `npm start`
+## 3. 첫 클릭에만 ListContainer 컴포넌트 slideIn @keyframes으로 opacity 효과 적용
+## 해결 : styled-components의 props 활용
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# paldosan" 
+# 에러 해결
+## 1. If you want to write it to the DOM, pass a string instead
+## 원인 : styled-components props 사용 시 React DOM이 알지 못하는 키워드로 인식
+## 해결 : props로 전달하는 속성 변수명 앞에 '$' 작성
