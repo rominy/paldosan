@@ -57,7 +57,7 @@ const MapContainer = styled.section`
 const ListContainer = styled.div`
   flex: 0.9;
   height: 680px;
-  overflow-y: ${props => props.$loading && 'scroll'};
+  /* overflow-y: ${props => props.$loading && 'scroll'}; */
   border: ${props => props.$loading && '1px solid #ccc'};
   animation: slideIn 2s forwards;
   opacity: 0;
@@ -68,6 +68,32 @@ const ListContainer = styled.div`
     border-right: ${props => !props.$loading && '1px solid #ccc'};
     border-bottom: ${props => !props.$loading && '1px solid #ccc'};
     border-left:${props => !props.$loading && '1px solid #ccc'};
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #ccc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #178EB4;
+    }
+  }
+`;
+
+const NavContainer = styled(Nav)`
+
+  .nav-link {
+    padding: 8px 22px;
+    font-weight: bold;
+    color: #666;
+
+    &.active {
+      background-color: #178EB4;
+      color: white;
+    }
   }
 `;
 
@@ -190,7 +216,7 @@ function Map(props) {
     },
   ]);
   // 불러올 아이템 개수
-  const numOfItems = 16;
+  const numOfItems = 2;
   const [activeKey, setActiveKey] = useState('home');
 
   useEffect(() => {
@@ -332,19 +358,20 @@ function Map(props) {
             {loading
               ? <Loading region={currentRegion} />  
               : <>
-                  <Nav 
+                  <NavContainer 
                     variant="tabs" 
                     defaultActiveKey="home"
                     onSelect={selectedKey => setActiveKey(selectedKey)}
                   >
                     <Nav.Item>
-                      <Nav.Link eventKey="home">총 {totalData}개</Nav.Link>
+                      <Nav.Link eventKey="home">전체 {totalData}개</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="favorites">즐겨찾기</Nav.Link>
                     </Nav.Item>
-                  </Nav>
+                  </NavContainer>
                   <div className='list-box'>
+                    <div>정렬</div>
                     {activeKey === 'home' && 
                       <>
                         {mountains.map((mountain, index) => 

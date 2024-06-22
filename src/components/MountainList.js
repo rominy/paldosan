@@ -10,9 +10,9 @@ const MountainListContainer = styled.div`
     border-bottom: 1px solid #ccc;
 
     img {
-      min-width: 140px;
-      max-width: 140px;
-      height: 80px;
+      min-width: 130px;
+      max-width: 130px;
+      height: 74px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
@@ -33,6 +33,7 @@ const MountainListContainer = styled.div`
         }
         
       #info__data-name {
+        font-size: 15px;
         font-weight: bold;  
       }
 

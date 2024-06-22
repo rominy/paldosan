@@ -8,6 +8,7 @@ import Header from './components/common/Header';
 import reset from "styled-reset";
 import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Map from './components/Map';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -17,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Kirang Haerang', cursive;
   }
 `;
 
@@ -45,6 +47,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Header />}>
             <Route index element={<Main />} />
+            <Route path='/map' element={<Map />} />
           </Route>
       </Routes>
       }

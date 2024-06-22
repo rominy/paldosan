@@ -1,3 +1,5 @@
+# 시그니처 색상 #219FE3
+
 ### 공공데이터포털에서 제공하는 이미지가 없으면 이미지 없음 사진으로 대체 -> 이미지 URL을 검사하여 이미지 파일명이 없는지 검사 (// 이미지 검사)
 
 ### 첫 방문 시 엡 소개 컴포넌트 렌더링 (로컬스토리지 사용)
@@ -18,3 +20,6 @@
 ## 1. If you want to write it to the DOM, pass a string instead
 ## 원인 : styled-components props 사용 시 React DOM이 알지 못하는 키워드로 인식
 ## 해결 : props로 전달하는 속성 변수명 앞에 '$' 작성
+
+# 편의 사항
+## 1. search icon 클릭 시 input에 자동 포커스
