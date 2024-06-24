@@ -9,7 +9,8 @@ const HeaderContainer = styled.header`
   background-color: #222;
   display: flex;
   align-items: center;
-  font-family: 'Kirang Haerang', cursive;
+  /* font-family: 'Kirang Haerang', cursive; */
+  font-family: "Yeon Sung", cursive;
 
   .header-inner {
     width: 100%;
@@ -38,7 +39,7 @@ const HeaderContainer = styled.header`
     } 
     
     .menu {
-      font-size: 22px;
+      font-size: 20px;
       
       li {
         margin: 0 14px;
@@ -46,27 +47,27 @@ const HeaderContainer = styled.header`
     }
     
     .member {
-      font-size: 18px;
+      font-size: 16px;
       
       #search-icon {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       span {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .search-box {
         position: relative;
         margin: 0;
-        font-size: 14px;
+        font-size: 18px;
 
         span {
           position: absolute;
           /* left: 0; */
           right: 10px;
-          bottom: 10px;
-          font-size: 16px;
+          bottom: 12px;
+          font-size: 14px;
           color: #666;
         }
       }
@@ -83,16 +84,16 @@ const HeaderContainer = styled.header`
 `;
 
 const SearchInput = styled.input`
-  max-width: ${props => props.$isVisible ? '180px' : '0'};
+  max-width: ${props => props.$isVisible ? '160px' : '0'};
   height: 32px;
-  padding: ${props => props.$isVisible ? '2px 26px 2px 6px' : '0'}; 
-  font-family: 'Noto Sans KR', sans-serif;
+  padding: ${props => props.$isVisible ? '2px 26px 2px 10px' : '0'}; 
+  /* font-family: 'Noto Sans KR', sans-serif; */
   border-radius: 5px;
   border: none;
   transition: max-width 0.3s ease-out;
 
   &::placeholder {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
@@ -126,16 +127,18 @@ function Header(props) {
             <li onClick={() => navigate('/')}>
               <img 
                 id='logo' 
-                src={`${process.env.REACT_APP_DATACENTER_URL}paldosan_logo-white.png`} 
+                src={`${process.env.REACT_APP_DATACENTER_URL}paldosan_logo_yeon.png`} 
                 alt='logo' 
               />
             </li>
             <li onClick={() => navigate('/')}>소개</li>
             <li onClick={() => navigate('/map')}>지도</li>
+            <li onClick={() => navigate('/map')}>고객지원</li>
           </ul>
           <ul className='member'>
             <li className='search-box'>
               <SearchInput
+                type='text'
                 ref={inputRef}
                 $isVisible={isSearchBoxVisible}
                 onChange={handleInputChange}
@@ -150,7 +153,7 @@ function Header(props) {
             >
               <IoMdSearch />
             </li>
-            <li>로그인</li>
+            <li onClick={() => navigate('/login')}>로그인</li>
             <li>회원가입</li>
           </ul>
         </nav>

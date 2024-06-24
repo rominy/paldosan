@@ -9,6 +9,8 @@ import reset from "styled-reset";
 import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from './components/Map';
+import Login from './pages/Login';
+import NaverCallback from './components/naver/NaverCallback';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -19,7 +21,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     /* font-family: 'Noto Sans KR', sans-serif; */
-    font-family: 'Kirang Haerang', cursive;
+    /* font-family: 'Kirang Haerang', cursive; */
+    font-family: "Yeon Sung", system-ui;
   }
 `;
 
@@ -48,6 +51,8 @@ function App() {
           <Route path='/' element={<Header />}>
             <Route index element={<Main />} />
             <Route path='/map' element={<Map />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/naver-callback' element={<NaverCallback />} />
           </Route>
       </Routes>
       }

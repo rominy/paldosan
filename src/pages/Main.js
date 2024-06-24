@@ -3,7 +3,7 @@ import Map from '../components/Map';
 import styled from 'styled-components';
 import { IoIosArrowForward } from "react-icons/io";
 
-const MainContainer = styled.section`
+const MainContainer = styled.main`
   width: 100%;
   height: calc(100vh - 70px);
   background-image: url('https://raw.githubusercontent.com/rominy/data-center/main/images/paldosan_main-bg2.jpg');
@@ -21,7 +21,7 @@ const MainContainer = styled.section`
     overflow: hidden;
 
     p {
-      font-size: 36px;
+      font-size: 32px;
     }
 
     button {
@@ -29,7 +29,7 @@ const MainContainer = styled.section`
       padding: 4px 8px;
       display: flex;
       align-items: end;
-      font-size: 24px;
+      font-size: 22px;
       background-color: transparent;
       border: none;
 
